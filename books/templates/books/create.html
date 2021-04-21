@@ -1,0 +1,15 @@
+{% extends "layouts/main.html" %}
+{% block title%}
+    Create Page
+     {% endblock %}
+
+{% block body%}
+
+<form action="{% url 'create' %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Add Book</button>
+</form>
+
+
+{% endblock %}

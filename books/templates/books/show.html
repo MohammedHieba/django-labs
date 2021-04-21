@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+{% block title%}
+ Show Page
+     {% endblock %}
+
+{% block body%}
+
+<div class="container">
+
+  <div class="card">
+    <div class="card-header">
+      book Info
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Title:</h5>
+      <p class="card-text">{{ book.title }}</p>
+      <h5 class="card-title">Description:</h5>
+      <p class="card-text">{{ book.content }}</p>
+    </div>
+  </div>
+
+
+
+</div>
+
+{% endblock %}

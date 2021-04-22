@@ -1,11 +1,19 @@
 from django.shortcuts import render, redirect
 from .forms import BookForm
 from .models import Book
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
 def index(request):
-    books = Book.objects.all()
+    books_list = Book.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(books_list, 5)
+    try:
+        books = paginator.page(page)
+    except PageNotAnInteger:
+        books = paginator.page(1)
+    except EmptyPage:
+        books = paginator.page(paginator.num_pages)
     return render(request, 'books/index.html', {"books": books})
 
 

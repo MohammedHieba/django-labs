@@ -5,8 +5,18 @@ Index Page
 
 {% block body%}
 
+<div class="row">
+    <div  class="col">
+        <a href="{% url 'create' %}" class="btn btn-success" style="margin-bottom: 20px;"  >Create Book</a>
+    </div>
 
-<a href="{% url 'create' %}" class="btn btn-success" style="margin-bottom: 20px;"  >Create Book</a>
+    {% if request.user.is_authenticated %}
+    <div class="alert alert-success col col-lg-2 " role="alert" >
+         Welcome {{ request.user  }}
+    </div>
+    {% endif %}
+</div>
+
 <table class="table">
     <thead>
       <tr>
